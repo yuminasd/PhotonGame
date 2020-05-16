@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7406493768129784532}
   - component: {fileID: 7395590456924510516}
   - component: {fileID: 114816899402204940}
+  - component: {fileID: 136427718942434706}
   m_Layer: 0
   m_Name: PlayerAvatar
   m_TagString: Untagged
@@ -166,6 +167,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 0}
   characterValue: 0
+--- !u!136 &136427718942434706
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721917641954448476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2562616212936375500
 GameObject:
   m_ObjectHideFlags: 0
