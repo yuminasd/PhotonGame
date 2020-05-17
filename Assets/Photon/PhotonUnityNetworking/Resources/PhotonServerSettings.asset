@@ -37,6 +37,11 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_AddCharacter
+  - RPC_Shooting
+  - RPC_SendTImer
+  - RPC_SendTimer
+  - RPC_GetTeam
+  - RPC_SentTeam
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

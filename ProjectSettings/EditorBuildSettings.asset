@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/DelayStartMenu.unity
+    guid: a7b3dd9448952814d8e4007eeae03fe4
+  - enabled: 1
+    path: Assets/Scenes/DelayStartRoom.unity
+    guid: d0bf53e331f78054cad7353709d4e822
+  - enabled: 1
+    path: Assets/Scenes/DelayGameScene.unity
+    guid: 44cafe0255488c14ea0e59f2d1cb52bf
+  - enabled: 0
     path: Assets/Scenes/menuScene.unity
     guid: 2c5242c0a7a47494eab6d47da470eb1e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/multiplayerScene.unity
     guid: 3d6baaf725b4cb64e8f7d8996f10f2fc
   m_configObjects: {}

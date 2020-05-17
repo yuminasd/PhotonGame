@@ -6,23 +6,27 @@ using UnityEngine;
 
 public class PhotonPlayer : MonoBehaviour
 {
-    private PhotonView PV;
+    public PhotonView PV;
     public GameObject myAvatar;
+    public int myTeam=1;
     // Start is called before the first frame update
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        int spawnPicker = Random.Range(0, GameSetup.GS.spawnPoints.Length);
-        if ( PV.IsMine)
+
+        if (PV.IsMine)
         {
-           myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerAvatar"),
-            GameSetup.GS.spawnPoints[spawnPicker].position, GameSetup.GS.spawnPoints[spawnPicker].rotation, 0);
+            //   myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "FirstPerson-AIO"),
+            //    DelayGameSetup.GS.spawnPoints[spawnPicker].position, DelayGameSetup.GS.spawnPoints[spawnPicker].rotation, 0);
+            myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerAvatar"),
+         DelayGameSetup.GS.spawnPoints.position, DelayGameSetup.GS.spawnPoints.rotation, 0);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+     
     }
+
 }
