@@ -8,19 +8,22 @@ using UnityEngine.SceneManagement;
 public class DelayGameSetup : MonoBehaviour
 {
     public static DelayGameSetup GS;
-    public Transform spawnPoints;
+    public GameObject[] spawnPoints;
     // Start is called before the first frame update
     void Start()
     {
         CreatePlayer();
-        
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public void CreatePlayer()
     {
         Debug.Log("CreatingPlayer");
         //creates player network controller but not a player character
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonNetworkPlayer"), transform.position, Quaternion.identity, 0);
+       GameObject myPlayer = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Capsule"), spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].transform.position, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].transform.rotation, 0);
+        myPlayer.transform.Find("Camera").gameObject.SetActive(true);
+        ((MonoBehaviour)myPlayer.GetComponent("FPSControl")).enabled = true;
+        myPlayer.transform.Find("Max").gameObject.SetActive(false);
     }
 
     private void OnEnable()

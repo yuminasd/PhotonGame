@@ -10,21 +10,21 @@ public class DelayStartWaitingRoom : MonoBehaviourPunCallbacks
     private PhotonView PV;
 
     [SerializeField]
-    private int multiplayerSceneIndex;
+    public int multiplayerSceneIndex;
 
     [SerializeField]
-    private int menuSceneIndex;
+    public int menuSceneIndex;
 
     private int playerCount;
     private int roomSize;
 
     [SerializeField]
-    private int minPlayersToStart;
+    public int minPlayersToStart;
 
     [SerializeField]
-    private Text timerToStartDisplay;
+    public Text timerToStartDisplay;
     [SerializeField]
-    private Text roomCountDisplay;
+    public Text roomCountDisplay;
 
     //bool values for if the timer can count down;
     private bool readyToStart;
@@ -32,7 +32,7 @@ public class DelayStartWaitingRoom : MonoBehaviourPunCallbacks
 
 
     [SerializeField]
-    private float maxWaitTime;
+    public float maxWaitTime;
     private float timer;
 
    
@@ -132,7 +132,7 @@ public class DelayStartWaitingRoom : MonoBehaviourPunCallbacks
 
     public void DelayLeave()
     {
-        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
         UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneIndex);
     }
 }
