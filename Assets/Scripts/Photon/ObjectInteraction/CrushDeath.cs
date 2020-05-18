@@ -8,11 +8,11 @@ public class CrushDeath : MonoBehaviour
 {
     public PhotonView PV;
     public GameObject hole;
-    private bool open=false;
+    private bool isn = false;
     // Start is called before the first frame update
     void Start()
     {
-        PV.GetComponent<PhotonView>();
+      PV=  PV.GetComponent<PhotonView>();
         
     }
 
@@ -20,24 +20,19 @@ public class CrushDeath : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.down * Time.deltaTime, Space.Self);
-        if (transform.position.y < 2.6 && !open )
+        if (transform.position.y < 5&&isn !=true)
         {
+            isn = true;
             Debug.Log("Open Sesame babe");
-            open = true;
-            hole.GetComponent<Collider>().enabled = false;
+            hole.GetComponent<Checker>().spacer = true;
+ 
         }
     }
 
-   void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if ( other.gameObject.CompareTag("Player"))
         {
-
-        if(!PhotonNetwork.IsMasterClient)
-        {
-            return;
-        }
-
         PhotonNetwork.LoadLevel(3);
 
         }

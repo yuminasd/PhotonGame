@@ -49,6 +49,10 @@ MonoBehaviour:
   - Enter
   - teleportPlayer
   - nextScene
+  - disableCursor
+  - moveCircle
+  - openHole
+  - move
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

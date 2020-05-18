@@ -17,14 +17,24 @@ public class FPSControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState=CursorLockMode.Locked;
-        Cursor.visible = false;
+      PV= PV.GetComponent<PhotonView>();
+        if (!PV.IsMine)
+        {
+            return;
+        }
+
+        PV.RPC("disableCursor", RpcTarget.All, null);
+        
         charCon = gameObject.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!PV.IsMine)
+        {
+            return;
+        }
         moveFB = Input.GetAxis("Vertical") * speed;
         moveLR = Input.GetAxis("Horizontal") * speed;
 
@@ -56,6 +66,13 @@ public class FPSControl : MonoBehaviour
         {
             verticalVelocity += Physics.gravity.y * Time.deltaTime;
         }
+    }
+
+    [PunRPC]
+    void disableCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 }
