@@ -9,14 +9,18 @@ public class CrushDeath : MonoBehaviour
     public PhotonView PV;
 <<<<<<< HEAD
     public GameObject hole;
+<<<<<<< HEAD
 =======
     public GameObject[] hole;
 >>>>>>> 4e4f69bdf180ee11151ee949e4a333d87ffc186b
     private bool isn = false;
+=======
+    private bool open=false;
+>>>>>>> parent of 75d814c... Nothing happened
     // Start is called before the first frame update
     void Start()
     {
-      PV=  PV.GetComponent<PhotonView>();
+        PV.GetComponent<PhotonView>();
         
     }
 
@@ -24,10 +28,10 @@ public class CrushDeath : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.down * Time.deltaTime, Space.Self);
-        if (transform.position.y < 5&&isn !=true)
+        if (transform.position.y < 2.6 && !open )
         {
-            isn = true;
             Debug.Log("Open Sesame babe");
+<<<<<<< HEAD
 <<<<<<< HEAD
             hole.GetComponent<Checker>().spacer = true;
 =======
@@ -37,13 +41,23 @@ public class CrushDeath : MonoBehaviour
             }
 >>>>>>> 4e4f69bdf180ee11151ee949e4a333d87ffc186b
  
+=======
+            open = true;
+            hole.GetComponent<Collider>().enabled = false;
+>>>>>>> parent of 75d814c... Nothing happened
         }
     }
 
-    void OnTriggerEnter(Collider other)
+   void OnTriggerEnter(Collider other)
     {
         if ( other.gameObject.CompareTag("Player"))
         {
+
+        if(!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
         PhotonNetwork.LoadLevel(3);
 
         }
