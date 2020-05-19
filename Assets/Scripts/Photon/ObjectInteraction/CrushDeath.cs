@@ -19,7 +19,7 @@ public class CrushDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * Time.deltaTime, Space.Self);
+        transform.Translate(Vector3.down *0.01f, Space.Self);
         if (transform.position.y < 5&&isn !=true)
         {
             isn = true;

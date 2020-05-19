@@ -23,11 +23,11 @@ public class iMove : MonoBehaviour
     {
         if ( direction.Contains("Left"))
         {
-            transform.Translate(0.1f, 0, 0);
+            transform.Translate(1f, 0, 0);
         }
         if (direction.Contains("Right"))
         {
-            transform.Translate(-0.1f, 0, 0);
+            transform.Translate(1.0f, 0, 0);
         }
         //if (direction.Contains("Forward"))
         //{
