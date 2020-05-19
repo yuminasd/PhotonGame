@@ -3,7 +3,6 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DelayStartLobby : MonoBehaviourPunCallbacks
 {
@@ -13,8 +12,6 @@ public class DelayStartLobby : MonoBehaviourPunCallbacks
     public GameObject battleButton;
     [SerializeField]
     public GameObject cancelButton;
-    [SerializeField]
-    public InputField nickname;
 
     [SerializeField]
     private int roomSize=2;
@@ -37,13 +34,10 @@ public class DelayStartLobby : MonoBehaviourPunCallbacks
         Debug.Log("We are now connected to the " + PhotonNetwork.CloudRegion + "");
         PhotonNetwork.AutomaticallySyncScene = true;
         battleButton.SetActive(true);
- 
-
     }
 
     public void OnBattleButtonClicked()
     {
-        setNickName();
         Debug.Log("Battle button was Clicked");
         battleButton.SetActive(false);
         cancelButton.SetActive(true);
@@ -69,7 +63,6 @@ public class DelayStartLobby : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joine droom");
         base.OnJoinedRoom();
-
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -81,16 +74,9 @@ public class DelayStartLobby : MonoBehaviourPunCallbacks
     {
         cancelButton.SetActive(false);
         battleButton.SetActive(true);
-        PhotonNetwork.Disconnect();
+        PhotonNetwork.LeaveRoom();
     }
     // Update is called once per frame
-
-    void setNickName()
-    {
-  
-        PhotonNetwork.LocalPlayer.NickName= nickname.text.ToString();
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
-    }
     void Update()
     {
 
