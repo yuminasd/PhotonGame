@@ -25,6 +25,7 @@ public class DelayStartWaitingRoom : MonoBehaviourPunCallbacks
     public Text timerToStartDisplay;
     [SerializeField]
     public Text roomCountDisplay;
+    public Text playersName;
 
     //bool values for if the timer can count down;
     private bool readyToStart;
@@ -34,6 +35,7 @@ public class DelayStartWaitingRoom : MonoBehaviourPunCallbacks
     [SerializeField]
     public float maxWaitTime;
     private float timer;
+
 
    
     // Start is called before the first frame update
@@ -50,7 +52,20 @@ public class DelayStartWaitingRoom : MonoBehaviourPunCallbacks
         playerCount = PhotonNetwork.PlayerList.Length;
         roomSize = PhotonNetwork.CurrentRoom.MaxPlayers;
         roomCountDisplay.text = "Players: " + playerCount + "/ " + roomSize;
+        playersName.text = "";
+          for ( int i = 0; i < playerCount;i++)
+         {
 
+              if (PhotonNetwork.LocalPlayer.NickName == null)
+             {
+                    playersName.text += "Player";
+              }
+                else
+            {
+            playersName.text += PhotonNetwork.PlayerList[i].NickName + "\n";
+            }
+        }
+        
         if(playerCount == roomSize)
         {
             readyToStart = true;
@@ -132,7 +147,15 @@ public class DelayStartWaitingRoom : MonoBehaviourPunCallbacks
 
     public void DelayLeave()
     {
+        StartCoroutine(leaving());
+    }
+    IEnumerator leaving()
+    {
         PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+        {
+            yield return null;
+        }
         UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneIndex);
     }
 }
