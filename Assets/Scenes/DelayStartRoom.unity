@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -590,13 +590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2943f2bdcb62dda48a6ef798eca2b3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplayerSceneIndex: 2
-  menuSceneIndex: 0
-  minPlayersToStart: 2
-  timerToStartDisplay: {fileID: 602538815}
-  roomCountDisplay: {fileID: 1487980201}
-  playersName: {fileID: 1743741888}
-  maxWaitTime: 10
 --- !u!4 &1499501716
 Transform:
   m_ObjectHideFlags: 0
@@ -940,7 +933,6 @@ GameObject:
   - component: {fileID: 1818687045}
   - component: {fileID: 1818687044}
   - component: {fileID: 1818687043}
-  - component: {fileID: 1818687046}
   m_Layer: 5
   m_Name: Leave
   m_TagString: Untagged
@@ -1054,18 +1046,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818687041}
   m_CullTransparentMesh: 0
---- !u!114 &1818687046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818687041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369d40b7405dd0142875f14012220acd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1936998008
 GameObject:
   m_ObjectHideFlags: 0
