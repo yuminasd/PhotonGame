@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LookAtMe : MonoBehaviour
 {
-    public GameObject cylinder;
+    public GameObject[] cylinder;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,13 +13,19 @@ public class LookAtMe : MonoBehaviour
     private void OnMouseEnter()
     {
         Debug.Log("Hi mom");
-        cylinder.GetComponent<Checker>().eyeball = true;
+        for (int i = 0; i < cylinder.Length; i++)
+        {
+            cylinder[i].GetComponent<Checker>().eyeball = true;
+        }
     }
 
     private void OnMouseExit()
     {
         Debug.Log("Bye mom");
-        cylinder.GetComponent<Checker>().eyeball = false;
+        for (int i = 0; i < cylinder.Length; i++)
+        {
+            cylinder[i].GetComponent<Checker>().eyeball = false;
+        }
     }
     // Update is called once per frame
     void Update()

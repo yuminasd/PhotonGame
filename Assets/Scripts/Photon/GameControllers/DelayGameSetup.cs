@@ -23,7 +23,8 @@ public class DelayGameSetup : MonoBehaviour
        GameObject myPlayer = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Capsule"), spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].transform.position, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].transform.rotation, 0);
         myPlayer.transform.Find("Camera").gameObject.SetActive(true);
         ((MonoBehaviour)myPlayer.GetComponent("FPSControl")).enabled = true;
-        myPlayer.transform.Find("Character_Elf").gameObject.SetActive(false);
+        myPlayer.transform.Find("Body_Mesh").gameObject.SetActive(false);
+        myPlayer.transform.Find("Bip001").gameObject.SetActive(false);
     }
 
     private void OnEnable()
