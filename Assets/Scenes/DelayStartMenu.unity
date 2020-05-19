@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Note: Use Discord to communicate with each other'
+  m_Text: 'Note: Use Discord names/to communicate'
 --- !u!222 &26424012
 CanvasRenderer:
   m_ObjectHideFlags: 0
