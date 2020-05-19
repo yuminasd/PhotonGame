@@ -14,10 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DelayGameScene.unity
     guid: 44cafe0255488c14ea0e59f2d1cb52bf
-  - enabled: 0
-    path: Assets/Scenes/menuScene.unity
-    guid: 2c5242c0a7a47494eab6d47da470eb1e
-  - enabled: 0
-    path: Assets/Scenes/multiplayerScene.unity
-    guid: 3d6baaf725b4cb64e8f7d8996f10f2fc
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 6c8c5653653a81643a6420b9ae830b6d
   m_configObjects: {}

@@ -23,6 +23,8 @@ public class DelayStartLobby : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         PhotonNetwork.ConnectUsingSettings();// connect to mastet photon server
     }
 

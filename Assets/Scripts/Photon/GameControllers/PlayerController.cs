@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
      void BasicRotation()
     {
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
+
         transform.Rotate(new Vector3(0, mouseX, 0));
     }
 
