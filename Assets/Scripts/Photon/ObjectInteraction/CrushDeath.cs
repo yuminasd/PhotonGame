@@ -7,7 +7,11 @@ using UnityEngine.SceneManagement;
 public class CrushDeath : MonoBehaviour
 {
     public PhotonView PV;
+<<<<<<< HEAD
     public GameObject hole;
+=======
+    public GameObject[] hole;
+>>>>>>> 4e4f69bdf180ee11151ee949e4a333d87ffc186b
     private bool isn = false;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,14 @@ public class CrushDeath : MonoBehaviour
         {
             isn = true;
             Debug.Log("Open Sesame babe");
+<<<<<<< HEAD
             hole.GetComponent<Checker>().spacer = true;
+=======
+            for (int i = 0; i < hole.Length; i++)
+            {
+                hole[i].GetComponent<Checker>().spacer = true;
+            }
+>>>>>>> 4e4f69bdf180ee11151ee949e4a333d87ffc186b
  
         }
     }
