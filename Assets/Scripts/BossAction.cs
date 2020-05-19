@@ -14,7 +14,7 @@ public class BossAction : MonoBehaviour
     void Start()
     {
         PV = PV.GetComponent<PhotonView>();
-        timer = 2f;  
+        timer = 1f;  
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class BossAction : MonoBehaviour
         timer -= Time.deltaTime;
         if ( timer <= 0)
         {
-            timer = 2f;
+            timer = 1f;
             transform.position = spawn[Random.Range(0, spawn.Length)].transform.position;
         }
 

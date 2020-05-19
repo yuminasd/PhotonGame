@@ -25,18 +25,18 @@ public class iMove : MonoBehaviour
         {
             transform.Translate(0.1f, 0, 0);
         }
-        if (direction.Contains("Rightt"))
+        if (direction.Contains("Right"))
         {
             transform.Translate(-0.1f, 0, 0);
         }
-        if (direction.Contains("Forward"))
-        {
-            transform.Translate(0, 0.1f, 0);
-        }
-        if (direction.Contains("Backward"))
-        {
-            transform.Translate(0.1f, -0.1f, 0);
-        }
+        //if (direction.Contains("Forward"))
+        //{
+        //    transform.Translate(0, 0.1f, 0);
+        //}
+        //if (direction.Contains("Backward"))
+        //{
+        //    transform.Translate(0.1f, -0.1f, 0);
+        //}
         if (direction.Contains("Up"))
         {
             transform.Translate(0, 0, 0.1f);
