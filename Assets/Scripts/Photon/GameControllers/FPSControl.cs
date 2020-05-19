@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FPSControl : MonoBehaviour
 {
+    public Animator anim;
 
     [SerializeField]
     private PhotonView PV;
@@ -17,14 +18,25 @@ public class FPSControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState=CursorLockMode.Locked;
-        Cursor.visible = false;
+        
+      PV= PV.GetComponent<PhotonView>();
+        if (!PV.IsMine)
+        {
+            return;
+        }
+
+        PV.RPC("disableCursor", RpcTarget.All, null);
+        
         charCon = gameObject.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!PV.IsMine)
+        {
+            return;
+        }
         moveFB = Input.GetAxis("Vertical") * speed;
         moveLR = Input.GetAxis("Horizontal") * speed;
 
@@ -47,6 +59,16 @@ public class FPSControl : MonoBehaviour
                 verticalVelocity = jumpDistance;
             }
         }
+
+        if(charCon.velocity.x>0||charCon.velocity.z>0)
+        {
+            anim.SetFloat("speed", 1);
+
+        }
+        else
+        {
+            anim.SetFloat("speed", 0);
+        }
     }
 
 
@@ -54,8 +76,20 @@ public class FPSControl : MonoBehaviour
     {
         if(!charCon.isGrounded)
         {
+            anim.SetBool("jump", true);
             verticalVelocity += Physics.gravity.y * Time.deltaTime;
         }
+        else
+        {
+            anim.SetBool("jump", false);
+        }
+    }
+
+    [PunRPC]
+    void disableCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 }
